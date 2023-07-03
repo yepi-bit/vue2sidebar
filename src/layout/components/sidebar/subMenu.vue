@@ -1,6 +1,6 @@
 <template>
   <div>
-        <template v-for="(item,index) in meuns" v-if="!item.hidden">
+        <template v-for="item in meuns" v-if="!item.hidden">
           <el-menu-item :index="item.path" v-if="!item.children">
             <i class="el-icon-setting"></i>
             <template #title>
