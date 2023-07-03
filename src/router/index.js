@@ -20,6 +20,12 @@ const routes = [
         meta: {title: '关于', icon: 'el-icon-user'},
         component: () => import('../views/AboutView.vue')
     },
+    {
+        path: '/paramRoute/:id',
+        name: 'paramRoute',
+        meta: {title: '动态参数', icon: 'el-icon-user'},
+        component: () => import('../views/paramRoute.vue')
+    },
     // 布局
     {
         path: '/',
@@ -70,28 +76,20 @@ const routes = [
 // 需要权限判断展示的路由
 const dynamicRoutes = [
     {
-        path: "/account",
+        // path: "/about",
         component: Layout,
-        redirect: '/account',     //重定向
+        redirect: '/about',     //重定向
         meta: {
-            title: "账户",
-            roles: ['admin', 'user']
+            title: "路由",
+            roles: ['admin']
         },
         children: [
             {
-                path: "/account",
-                component: () => import('../views/account.vue'),
+                path: "/about",
+                name: "about",
+                component: () => import('../views/AboutView.vue'),
                 meta: {
-                    title: "账户管理",
-                    roles: ['admin']
-                },
-            },
-            {
-                path: "/goodList",
-                name: "goodList",
-                component: () => import('../views/goodList.vue'),
-                meta: {
-                    title: "商品管理",
+                    title: "关于管理",
                     roles: ['user', 'admin']
                 }
             }
@@ -105,7 +103,7 @@ const router = new VueRouter({
 let addRouFlag = false
 router.beforeEach((to, from, next) => {
     // 取到用户的角色
-    let GetRole = ['admin']
+    let GetRole = ['admin'] // user看不到
     // 如果登录了
     if (GetRole) {
         next() //next()方法后的代码也会执行
@@ -118,10 +116,9 @@ router.beforeEach((to, from, next) => {
             global.antRouter = routes.concat(getRoutes)
             // console.log(global.antRouter)
             // 4.将生成好的路由addRoutes
-            router.addRoute(global.antRouter)
-            // 5.push之后，会重新进入到beforeEach的钩子里,直接进入第一个if判断
-            // router.push({path: to.path})
-            // next({...to, replace: true})
+            router.addRoute(routes.concat(getRoutes))
+            // router.options.routes=store.getters.routes
+            next({...to, replace: true}) // 刷新，再次进入
         }
     } else {
         // 用户没登录，跳转到登录页面

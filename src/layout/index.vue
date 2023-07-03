@@ -39,7 +39,6 @@ export default {
 }
 
 
-
 .el-main {
   padding: 0 6px;
 }
@@ -51,6 +50,7 @@ export default {
 
 .el-header {
   height: 50px;
+  padding: 0;
 }
 
 .el-aside {
