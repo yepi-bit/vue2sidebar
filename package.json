@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "element-ui": "^2.15.13",
+    "nprogress": "^0.2.0",
     "sass": "^1.63.6",
     "sass-loader": "^13.3.2",
     "vue": "^2.6.14",

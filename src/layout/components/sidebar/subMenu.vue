@@ -1,19 +1,19 @@
 <template>
   <div>
-        <template v-for="item in meuns" v-if="!item.hidden">
-          <el-menu-item :index="item.path" v-if="!item.children">
+        <template v-for="item in meuns">
+          <el-menu-item :index="item.path+''" v-if="!item.children">
             <i class="el-icon-setting"></i>
             <template #title>
               <span v-if="item.meta.title">{{ item.meta.title }}</span>
             </template>
           </el-menu-item>
     <!--  多级    -->
-          <el-submenu :index="item.path" v-if="item.children">
+          <el-submenu :index="item.path+''" v-if="item.children">
             <template slot="title">
               <span v-if="item.meta.title">{{ item.meta.title }}</span>
             </template>
-            <template v-for="itemChild in item.children" v-if="!itemChild.hidden">
-              <template>
+            <template v-for="itemChild in item.children">
+              <template v-if="!itemChild.hidden">
                 <el-menu-item :index="itemChild.path">
                   <span v-if="itemChild.meta?.title">{{ itemChild.meta?.title }}</span>
                 </el-menu-item>

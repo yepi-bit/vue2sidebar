@@ -1,5 +1,9 @@
 <template>
-  <div class="top">顶栏</div>
+  <div class="top">
+    <div>
+      顶栏
+    </div>
+  </div>
 </template>
 
 <script>
