@@ -1,6 +1,6 @@
 <template>
   <div>
-    主页
+    <span v-myColor>主页</span>
     <el-button @click="paramClick">传参</el-button>
   </div>
 </template>
