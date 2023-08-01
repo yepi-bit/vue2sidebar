@@ -3727,6 +3727,11 @@ make-dir@^3.0.2, make-dir@^3.1.0:
   dependencies:
     semver "^6.0.0"
 
+mathjax-vue@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mathjax-vue/-/mathjax-vue-1.0.1.tgz#a545807714bd20d429c0e31598e7a14eb9152d7f"
+  integrity sha512-kzx8nPsAo4KMlyoL5Nl8kHXsyI6S7bykLfLDZPctfMPOAaHqdFV6rT8EeWmYtjRMW0gARwXkZ1LTKenfwE2y8g==
+
 mdn-data@2.0.14:
   version "2.0.14"
   resolved "https://registry.npmmirror.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
